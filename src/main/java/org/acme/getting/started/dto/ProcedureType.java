@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
     "id",
     "title"
 })
-public class ProceduretypeType {
+public class ProcedureType {
 
     protected int id;
     @XmlElement(required = true)

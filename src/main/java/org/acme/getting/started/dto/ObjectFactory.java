@@ -86,11 +86,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ProceduretypeType }
+     * Create an instance of {@link ProcedureType }
      * 
      */
-    public ProceduretypeType createProceduretypeType() {
-        return new ProceduretypeType();
+    public ProcedureType createProceduretypeType() {
+        return new ProcedureType();
     }
 
     /**

@@ -3,6 +3,8 @@ package org.acme.getting.started.dto;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
 
@@ -44,9 +46,9 @@ import java.util.Calendar;
 public class ExportRequestType {
 
     @XmlSchemaType(name = "dateTime")
-    protected Calendar startDate;
+    protected String startDate;
     @XmlSchemaType(name = "dateTime")
-    protected Calendar endDate;
+    protected String endDate;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar startUpdateAt;
     @XmlSchemaType(name = "dateTime")
@@ -61,314 +63,107 @@ public class ExportRequestType {
     protected SortRules sort;
     protected Integer page;
 
-    /**
-     * Gets the value of the startDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public Calendar getStartDate() {
+
+    public String  getStartDate() {
         return startDate;
     }
 
-    /**
-     * Sets the value of the startDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setStartDate(Calendar value) {
+    public void setStartDate(String value) {
         this.startDate = value;
     }
 
-    /**
-     * Gets the value of the endDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public Calendar getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    /**
-     * Sets the value of the endDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setEndDate(Calendar value) {
+    public void setEndDate(String  value) {
         this.endDate = value;
     }
 
-    /**
-     * Gets the value of the startUpdateAt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
     public XMLGregorianCalendar getStartUpdateAt() {
         return startUpdateAt;
     }
 
-    /**
-     * Sets the value of the startUpdateAt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
     public void setStartUpdateAt(XMLGregorianCalendar value) {
         this.startUpdateAt = value;
     }
 
-    /**
-     * Gets the value of the endUpdateAt property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
     public XMLGregorianCalendar getEndUpdateAt() {
         return endUpdateAt;
     }
 
-    /**
-     * Sets the value of the endUpdateAt property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
     public void setEndUpdateAt(XMLGregorianCalendar value) {
         this.endUpdateAt = value;
     }
 
-    /**
-     * Gets the value of the sectionCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getSectionCode() {
         return sectionCode;
     }
 
-    /**
-     * Sets the value of the sectionCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setSectionCode(String value) {
         this.sectionCode = value;
     }
 
-    /**
-     * Gets the value of the registryNumber property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getRegistryNumber() {
         return registryNumber;
     }
 
-    /**
-     * Sets the value of the registryNumber property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setRegistryNumber(String value) {
         this.registryNumber = value;
     }
 
-    /**
-     * Gets the value of the eisRegistryNumber property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getEisRegistryNumber() {
         return eisRegistryNumber;
     }
 
-    /**
-     * Sets the value of the eisRegistryNumber property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setEisRegistryNumber(String value) {
         this.eisRegistryNumber = value;
     }
 
-    /**
-     * Gets the value of the typeId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
     public Integer getTypeId() {
         return typeId;
     }
 
-    /**
-     * Sets the value of the typeId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
     public void setTypeId(Integer value) {
         this.typeId = value;
     }
 
-    /**
-     * Gets the value of the organizerINN property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getOrganizerINN() {
         return organizerINN;
     }
 
-    /**
-     * Sets the value of the organizerINN property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setOrganizerINN(String value) {
         this.organizerINN = value;
     }
 
-    /**
-     * Gets the value of the customerINN property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getCustomerINN() {
         return customerINN;
     }
 
-    /**
-     * Sets the value of the customerINN property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
     public void setCustomerINN(String value) {
         this.customerINN = value;
     }
 
-    /**
-     * Gets the value of the limitPage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
     public Integer getLimitPage() {
         return limitPage;
     }
 
-    /**
-     * Sets the value of the limitPage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
     public void setLimitPage(Integer value) {
         this.limitPage = value;
     }
 
-    /**
-     * Gets the value of the sort property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SortRules }
-     *     
-     */
     public SortRules getSort() {
         return sort;
     }
 
-    /**
-     * Sets the value of the sort property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SortRules }
-     *     
-     */
     public void setSort(SortRules value) {
         this.sort = value;
     }
 
-    /**
-     * Gets the value of the page property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
     public Integer getPage() {
         return page;
     }
 
-    /**
-     * Sets the value of the page property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
     public void setPage(Integer value) {
         this.page = value;
     }

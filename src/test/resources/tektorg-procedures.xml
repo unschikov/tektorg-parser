@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+				   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://tektorg.loc/api"
+				   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<SOAP-ENV:Body>
+		<SOAP-ENV:proceduresResponse>
+			<totalProcedures>3</totalProcedures>
+			<currentPage />
+			<totalPage>1</totalPage>
+			<limitProceduresInPage>500</limitProceduresInPage>
+			<sectionName>Арестованное иммущество</sectionName>
+			<sectionCode>arrested_sale</sectionCode>
+			<procedures>
+				<procedure id="4531">
+					<remoteId>4531</remoteId>
+					<url_to_showcase>https://www.tektorg.ru/arrested-sale/procedures/650125</url_to_showcase>
+					<registryNumber>4531–ОАОФАИ</registryNumber>
+					<title>Первичные торги в форме открытого аукциона с открытой формой представления предложений о
+						цене, должник(и) Шевельков П.А.</title>
+					<datePublished>2021-03-15T18:15:20+03:00</datePublished>
+					<dateUpdated>2021-03-15T18:15:21.062098+03</dateUpdated>
+					<dateEndRegistration>2021-04-12T17:00:00+03:00</dateEndRegistration>
+					<dateRegistrationTech>1970-01-01T03:00:00+03:00</dateRegistrationTech>
+					<dateEndSecondPartsReview>2021-04-16T10:10:00+03:00</dateEndSecondPartsReview>
+					<dateEndRegistrationCom>1970-01-01T03:00:00+03:00</dateEndRegistrationCom>
+					<dateBeginAuction>2021-04-16T10:00:00+03:00</dateBeginAuction>
+					<procedureType>
+						<id>1201</id>
+						<title>Открытый аукцион с открытой формой представления предложений о цене</title>
+					</procedureType>
+					<contactEmail>tu62@rosim.ru</contactEmail>
+					<contactPhone>84912926655</contactPhone>
+					<contactPerson>Межрегиональное территориальное управление Федерального агентства по управлению
+						государственным имуществом в Тульской, Рязанской и Орловской областях</contactPerson>
+					<organizer>
+						<id>407</id>
+						<fullName>Межрегиональное территориальное управление Федерального агентства по управлению
+							государственным имуществом в Тульской, Рязанской и Орловской областях</fullName>
+						<inn>7106510491</inn>
+					</organizer>
+					<documents>
+						<document>
+							<id>5852062</id>
+							<filename>ZMw0Ddw3ygHGsnS024LVPUl4TYQYhPY1bucwaipVg1tE0Ppfp5WXEuQ87QUU-407.zip</filename>
+							<file>https://www.tektorg.ru/document.php?id=5852062</file>
+						</document>
+					</documents>
+					<lots>
+						<lot id="1485655">
+							<remoteId>10131</remoteId>
+							<number>3</number>
+							<subject>Осмотр имущества осуществляется лицом, желающим принять участие в торгах,
+								самостоятельно при участии ответственного хранителя, указанного в акте ареста, а также
+								судебного пристава-исполнителя, передавшего имущество на реализацию. Контактные данные
+								отделов судебных приставов находятся в свободном доступе.</subject>
+							<startPrice>1314000</startPrice>
+							<status>Объявлен</status>
+						</lot>
+					</lots>
+				</procedure>
+				<procedure id="4530">
+					<remoteId>4530</remoteId>
+					<url_to_showcase>https://www.tektorg.ru/arrested-sale/procedures/650119</url_to_showcase>
+					<registryNumber>4530–ОАОФАИ</registryNumber>
+					<title>Первичные торги в форме открытого аукциона с открытой формой представления предложений о
+						цене, должник(и) Пазухин В.Ф.</title>
+					<datePublished>2021-03-15T18:13:19+03:00</datePublished>
+					<dateUpdated>2021-03-15T18:13:20.113996+03</dateUpdated>
+					<dateEndRegistration>2021-04-12T17:00:00+03:00</dateEndRegistration>
+					<dateRegistrationTech>1970-01-01T03:00:00+03:00</dateRegistrationTech>
+					<dateEndSecondPartsReview>2021-04-16T10:10:00+03:00</dateEndSecondPartsReview>
+					<dateEndRegistrationCom>1970-01-01T03:00:00+03:00</dateEndRegistrationCom>
+					<dateBeginAuction>2021-04-16T10:00:00+03:00</dateBeginAuction>
+					<procedureType>
+						<id>1201</id>
+						<title>Открытый аукцион с открытой формой представления предложений о цене</title>
+					</procedureType>
+					<contactEmail>tu62@rosim.ru</contactEmail>
+					<contactPhone>84912926655</contactPhone>
+					<contactPerson>Межрегиональное территориальное управление Федерального агентства по управлению
+						государственным имуществом в Тульской, Рязанской и Орловской областях</contactPerson>
+					<organizer>
+						<id>407</id>
+						<fullName>Межрегиональное территориальное управление Федерального агентства по управлению
+							государственным имуществом в Тульской, Рязанской и Орловской областях</fullName>
+						<inn>7106510491</inn>
+					</organizer>
+					<documents>
+						<document>
+							<id>5852040</id>
+							<filename>ZMw0Ddw3ygHGsnS024LVPUl4TYQYhPY1bucwaipVg1tE0Ppfp5WXEuQ87QUU-407.zip</filename>
+							<file>https://www.tektorg.ru/document.php?id=5852040</file>
+						</document>
+					</documents>
+					<lots>
+						<lot id="1485649">
+							<remoteId>10130</remoteId>
+							<number>2</number>
+							<subject>Осмотр имущества осуществляется лицом, желающим принять участие в торгах,
+								самостоятельно при участии ответственного хранителя, указанного в акте ареста, а также
+								судебного пристава-исполнителя, передавшего имущество на реализацию. Контактные данные
+								отделов судебных приставов находятся в свободном доступе.</subject>
+							<startPrice>316000</startPrice>
+							<status>Объявлен</status>
+						</lot>
+					</lots>
+				</procedure>
+				<procedure id="4529">
+					<remoteId>4529</remoteId>
+					<url_to_showcase>https://www.tektorg.ru/arrested-sale/procedures/650114</url_to_showcase>
+					<registryNumber>4529–ОАОФАИ</registryNumber>
+					<title>Первичные торги в форме открытого аукциона с открытой формой представления предложений о
+						цене, должник(и) Токарев А.Н.</title>
+					<datePublished>2021-03-15T18:09:58+03:00</datePublished>
+					<dateUpdated>2021-03-15T18:09:59.582983+03</dateUpdated>
+					<dateEndRegistration>2021-04-12T17:00:00+03:00</dateEndRegistration>
+					<dateRegistrationTech>1970-01-01T03:00:00+03:00</dateRegistrationTech>
+					<dateEndSecondPartsReview>2021-04-16T10:10:00+03:00</dateEndSecondPartsReview>
+					<dateEndRegistrationCom>1970-01-01T03:00:00+03:00</dateEndRegistrationCom>
+					<dateBeginAuction>2021-04-16T10:00:00+03:00</dateBeginAuction>
+					<procedureType>
+						<id>1201</id>
+						<title>Открытый аукцион с открытой формой представления предложений о цене</title>
+					</procedureType>
+					<contactEmail>tu62@rosim.ru</contactEmail>
+					<contactPhone>84912926655</contactPhone>
+					<contactPerson>Межрегиональное территориальное управление Федерального агентства по управлению
+						государственным имуществом в Тульской, Рязанской и Орловской областях</contactPerson>
+					<organizer>
+						<id>407</id>
+						<fullName>Межрегиональное территориальное управление Федерального агентства по управлению
+							государственным имуществом в Тульской, Рязанской и Орловской областях</fullName>
+						<inn>7106510491</inn>
+					</organizer>
+					<documents>
+						<document>
+							<id>5851966</id>
+							<filename>ZMw0Ddw3ygHGsnS024LVPUl4TYQYhPY1bucwaipVg1tE0Ppfp5WXEuQ87QUU-407.zip</filename>
+							<file>https://www.tektorg.ru/document.php?id=5851966</file>
+						</document>
+					</documents>
+					<lots>
+						<lot id="1485644">
+							<remoteId>10129</remoteId>
+							<number>1</number>
+							<subject>Осмотр имущества осуществляется лицом, желающим принять участие в торгах,
+								самостоятельно при участии ответственного хранителя, указанного в акте ареста, а также
+								судебного пристава-исполнителя, передавшего имущество на реализацию. Контактные данные
+								отделов судебных приставов находятся в свободном доступе.</subject>
+							<startPrice>228000</startPrice>
+							<status>Объявлен</status>
+						</lot>
+					</lots>
+				</procedure>
+			</procedures>
+		</SOAP-ENV:proceduresResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

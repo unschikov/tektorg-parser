@@ -1,6 +1,7 @@
 package org.acme.getting.started;
 
 
+import io.quarkus.redis.client.RedisClient;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -8,13 +9,21 @@ import org.acme.getting.started.dto.ExportProcedurePort;
 import org.acme.getting.started.dto.ExportRequestType;
 import org.acme.getting.started.dto.Procedure;
 import org.acme.getting.started.dto.Procedures;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.message.Message;
+import org.apache.cxf.phase.AbstractPhaseInterceptor;
+import org.apache.cxf.phase.Phase;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.xml.ws.Holder;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 @ApplicationScoped
@@ -33,38 +42,38 @@ public class TektorgParser {
     @Inject
     SoapClient soapClient;
 
-    public List<Procedure> getProcedures() {
+    /**
+     * обход происходит постранично, на каждой странице по определенному количеству процедур (@limitPage)
+      * как только мы обошли все станицы, и список пустой, мы переходим на первую страницу и меняем секцию
+     * */
+    public List<Procedure> getProceduresFromAllSections(LocalDateTime lastDate) {
         int indexSection = 0;
-        int numberPage = 1;
+        int page = 1;
         List<Procedure> procedureList = new ArrayList<>();
+        ExportRequestType request = new ExportRequestType();
+        if (lastDate != null) {
+            request.setStartDate(lastDate.truncatedTo(ChronoUnit.SECONDS).toString());
+        }
+        request.setLimitPage(limitPage);
         while (indexSection < sections.length) {
-            ExportRequestType requestType = createExportRequestType(indexSection, numberPage);
-            List<Procedure> procedures = requestProceduresListFromSOAP(requestType);
+            request.setSectionCode(sections[indexSection]);
+            request.setPage(page);
+            List<Procedure> procedures = getProceduresLimitOnePage(request);
             procedureList.addAll(procedures);
-            numberPage++;
+            page++;
             if (procedures.isEmpty()) {
-                numberPage = 1;
+                page = 1;
                 indexSection++;
             }
         }
         return procedureList;
     }
 
-    ExportRequestType createExportRequestType(int indexSection, int page) {
-        ExportRequestType requestType = new ExportRequestType();
-
-//        //TODO реализовать дату забора данных
-        Calendar startDate = Calendar.getInstance();
-        startDate.add(Calendar.DAY_OF_WEEK, -2);
-        requestType.setStartDate(startDate);
-
-        requestType.setLimitPage(limitPage);
-        requestType.setSectionCode(sections[indexSection]);
-        requestType.setPage(page);
-        return requestType;
-    }
-
-    protected List<Procedure> requestProceduresListFromSOAP(ExportRequestType requestType) {
+    /***
+     * получаем количество процедур в рамках одной странци @limitPage(количество процедур на одной станицу)
+     * если мы получили 4000 процедур, и limitPage=500 то страниц будет 8
+     */
+    public List<Procedure> getProceduresLimitOnePage(ExportRequestType request) {
         Holder<Integer> totalProcedures = createIntegerSoapHolder();
         Holder<Integer> currentPage = createIntegerSoapHolder();
         Holder<Integer> totalPage = createIntegerSoapHolder();
@@ -75,7 +84,7 @@ public class TektorgParser {
 
         ExportProcedurePort exportProcedurePort = createExportProcedurePort(urlRequest);
         exportProcedurePort.procedures(
-                requestType,
+                request,
                 totalProcedures,
                 currentPage,
                 totalPage,
@@ -90,10 +99,8 @@ public class TektorgParser {
     ExportProcedurePort createExportProcedurePort(String urlRequest) {
         return soapClient.createExportProcedurePort(urlRequest);
     }
-
     Holder<Procedures> createProceduresSoapHolder() {
         return new Holder<>(new Procedures());
-
     }
     Holder<String> createStringSoapHolder() {
         return new Holder<>();

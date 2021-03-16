@@ -1,6 +1,5 @@
 package org.acme.getting.started;
 
-import lombok.Data;
 import org.acme.getting.started.dto.ExportProcedurePort;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.message.Message;
@@ -11,11 +10,8 @@ import javax.enterprise.context.ApplicationScoped;
 import java.util.Collections;
 
 @ApplicationScoped
-@Data
 public class SoapClient {
-
     JaxWsProxyFactoryBean proxyFactory;
-
     public ExportProcedurePort createExportProcedurePort(String urlRequest) {
         if (proxyFactory == null) {
             proxyFactory = new JaxWsProxyFactoryBean();

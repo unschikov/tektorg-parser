@@ -1,4 +1,3 @@
-
 package org.acme.getting.started.dto;
 
 import lombok.ToString;
@@ -76,7 +75,7 @@ public class Procedure {
     @XmlSchemaType(name = "dateTime")
     protected String dateArchived;
     @XmlElement(required = true)
-    protected ProceduretypeType procedureType;
+    protected ProcedureType procedureType;
     protected String contactEmail;
     protected String contactPhone;
     protected String contactPerson;
@@ -437,9 +436,9 @@ public class Procedure {
      * Gets the value of the procedureType property.
      *
      * @return possible object is
-     * {@link ProceduretypeType }
+     * {@link ProcedureType }
      */
-    public ProceduretypeType getProcedureType() {
+    public ProcedureType getProcedureType() {
         return procedureType;
     }
 
@@ -447,9 +446,9 @@ public class Procedure {
      * Sets the value of the procedureType property.
      *
      * @param value allowed object is
-     *              {@link ProceduretypeType }
+     *              {@link ProcedureType }
      */
-    public void setProcedureType(ProceduretypeType value) {
+    public void setProcedureType(ProcedureType value) {
         this.procedureType = value;
     }
 
