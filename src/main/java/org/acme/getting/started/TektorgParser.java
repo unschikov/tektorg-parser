@@ -50,23 +50,28 @@ public class TektorgParser {
         int indexSection = 0;
         int page = 1;
         List<Procedure> procedureList = new ArrayList<>();
-        ExportRequestType request = new ExportRequestType();
-        if (lastDate != null) {
-            request.setStartDate(lastDate.truncatedTo(ChronoUnit.SECONDS).toString());
-        }
-        request.setLimitPage(limitPage);
+        ExportRequestType exportRequestType = new ExportRequestType();
         while (indexSection < sections.length) {
-            request.setSectionCode(sections[indexSection]);
-            request.setPage(page);
-            List<Procedure> procedures = getProceduresLimitOnePage(request);
-            procedureList.addAll(procedures);
+            exportRequestType = setParamsExportRequestType(exportRequestType, lastDate, indexSection, page);
+            List<Procedure> proceduresOnePage = getProceduresLimitOnePage(exportRequestType);
+            procedureList.addAll(proceduresOnePage);
             page++;
-            if (procedures.isEmpty()) {
+            if (proceduresOnePage.isEmpty()) {
                 page = 1;
                 indexSection++;
             }
         }
         return procedureList;
+    }
+
+    public ExportRequestType setParamsExportRequestType(ExportRequestType exportRequestType, LocalDateTime lastDate, int indexSection, int page) {
+        if (lastDate != null) {
+            exportRequestType.setStartDate(lastDate.truncatedTo(ChronoUnit.SECONDS).toString());
+        }
+        exportRequestType.setLimitPage(limitPage);
+        exportRequestType.setSectionCode(sections[indexSection]);
+        exportRequestType.setPage(page);
+        return  exportRequestType;
     }
 
     /***

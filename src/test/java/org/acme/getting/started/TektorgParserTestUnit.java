@@ -1,53 +1,50 @@
-//package org.acme.getting.started;
-//
-//import org.acme.getting.started.dto.ExportProcedurePort;
-//import org.acme.getting.started.dto.ExportRequestType;
-//import org.acme.getting.started.dto.Procedure;
-//import org.acme.getting.started.dto.Procedures;
-//import org.junit.jupiter.api.Assertions;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//import org.mockito.Mockito;
-//
-//import javax.inject.Inject;
-//import javax.xml.ws.Holder;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//import static org.mockito.Mockito.*;
-//
-//
-//class TektorgParserTestUnit {
-//
-//    @Inject
-//    TektorgParser parser;
-//
-//    @BeforeEach
-//    void setUp() {
-//        parser = new TektorgParser();
-//        parser.setSections(new String[]{"4", "18", "21"});
-//        parser.setUrlRequest("http://api.tektorg.ru/procedures/soap");
-//        parser.setLimitPage(500);
-//        parser = spy(parser);
-//    }
-//
-//    @Test
-//    void getProcedures_callCreateExportRequestType() {
-//        // setup
-//        ExportRequestType mockExportRequestType = mock(ExportRequestType.class);
-//        doReturn(mockExportRequestType).when(parser).createExportRequestType(0, 1);
-//        List<Procedure> mockListProcedure = new ArrayList<>();
-//        doReturn(mockListProcedure).when(parser).getProcedures(mockExportRequestType);
-//        ExportProcedurePort mockExportProcedurePort = mock(ExportProcedurePort.class);
-//        doReturn(mockExportProcedurePort).when(parser).createExportProcedurePort(anyString());
-//        // act
-//        parser.getProceduresFromAllSections();
-//        // verify
-//        verify(parser).createExportRequestType(0, 1);
-//    }
-//
+package org.acme.getting.started;
+
+import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.junit.mockito.InjectMock;
+import org.acme.getting.started.dto.ExportProcedurePort;
+import org.acme.getting.started.dto.ExportRequestType;
+import org.acme.getting.started.dto.Procedure;
+import org.acme.getting.started.dto.Procedures;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import javax.inject.Inject;
+import javax.xml.ws.Holder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+@QuarkusTest
+class TektorgParserTestUnit {
+
+    @InjectMock
+    TektorgParser parser;
+
+    @BeforeEach
+    void setUp() {
+        parser.setUrlRequest("http://localhost:8080/api/tektorg");
+    }
+
+    @Test
+    void getProceduresFromAllSections() {
+        List<Procedure> mockListProcedure = new ArrayList<>();
+        mockListProcedure.add(new Procedure());
+        mockListProcedure.add(new Procedure());
+        ExportRequestType mockExportRequestType = mock(ExportRequestType.class);
+
+        when(parser.getProceduresLimitOnePage(mockExportRequestType)).thenReturn(mockListProcedure);
+        System.out.println(parser.getProceduresLimitOnePage(mockExportRequestType));
+
+        System.out.println("--------------");
+        System.out.println(parser.getProceduresFromAllSections(null));
+    }
+
 //    @Test
 //    void getProcedures_callRequestProceduresListFromSOAP() {
 //        // setup
@@ -183,5 +180,5 @@
 //        //  verify
 //        Assertions.assertEquals(result, mockProceduresList);
 //    }
-//
-//}
+
+}

@@ -21,11 +21,7 @@ class TektorgParserTestIntegration {
 
     @BeforeEach
     void setUp() {
-        parser = new TektorgParser();
-        parser.setSections(new String[]{"4", "18", "21"});
         parser.setUrlRequest("http://localhost:8080/api/tektorg");
-        parser.setLimitPage(500);
-        parser.setSoapClient(new SoapClient());
     }
 
     @Test
